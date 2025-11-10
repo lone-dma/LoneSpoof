@@ -1,7 +1,9 @@
 using LoneSpoof.Misc;
 using LoneSpoof.Spoofing;
 using Spectre.Console;
+using System.Reflection;
 using System.Text;
+using System.Xml.Linq;
 
 namespace LoneSpoof
 {
@@ -9,6 +11,10 @@ namespace LoneSpoof
     {
         static void Main()
         {
+            string version = Assembly
+                .GetExecutingAssembly()!
+                .GetCustomAttribute<AssemblyFileVersionAttribute>()!
+                .Version!;
             // Setup Console & Logging
             Console.OutputEncoding = Encoding.UTF8;
             using var logger = new ConsoleLogWriter(path: $"Log_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.txt");
@@ -20,8 +26,8 @@ namespace LoneSpoof
                     .Color(Color.Aqua);
                 AnsiConsole.Write(title);
 
-                AnsiConsole.MarkupLine($"[gray]Author: Lone DMA[/]");
-                AnsiConsole.MarkupLine($"[gray]Website: {Markup.Escape("https://lone-dma.org/")}[/]");
+                AnsiConsole.MarkupLine($"[gray]Version {version}[/]");
+                AnsiConsole.MarkupLine($"[gray]https://lone-dma.org/[/]");
                 AnsiConsole.Write(new Rule().RuleStyle("grey").Centered());
                 AnsiConsole.WriteLine();
                 // Startup Amidewin and get current values
