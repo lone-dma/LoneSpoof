@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>warnings</Nullable>
+	<PlatformTarget>x64</PlatformTarget>
+	<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	<Platforms>x64</Platforms>
+	<ApplicationManifest>app.manifest</ApplicationManifest>
+	<ApplicationIcon>lone-icon.ico</ApplicationIcon>
+
+	  <PublishAot>true</PublishAot>
+	  <HighEntropyVA>true</HighEntropyVA>
+	  <OptimizationPreference>Speed</OptimizationPreference>
+	  <CetCompat>false</CetCompat>
+	  <DebuggerSupport>false</DebuggerSupport>
+	  <StackTraceSupport>false</StackTraceSupport>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\AMIDEWINx64.EXE" />
+    <None Remove="Resources\amigendrv64.sys" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AMIDEWINx64.EXE" />
+    <EmbeddedResource Include="Resources\amigendrv64.sys" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Spectre.Console" Version="0.53.0" />
+  </ItemGroup>
+
+</Project>
