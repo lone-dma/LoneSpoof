@@ -300,7 +300,7 @@ namespace LoneSpoof.Spoofing
 
         private static void UnpackResource(string resource)
         {
-            const string resourcePrefix = "AmiSpoof.Resources.";
+            const string resourcePrefix = "LoneSpoof.Resources.";
             using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourcePrefix + resource) ??
                 throw new InvalidOperationException($"Resource '{resource}' not found.");
             using var fsOut = new FileStream(
