@@ -1,0 +1,53 @@
+name: Deploy latest version to Github Releases
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    environment: production
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Get version info
+        uses: dotnet/nbgv@master
+        id: nbgv
+
+      - name: Setup .NET 10 SDK
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Dotnet Publish
+        run: |
+          dotnet publish LoneSpoof.csproj `
+            -c Release `
+            -r win-x64 `
+            --self-contained `
+            /p:DebugType=None `
+            /p:DebugSymbols=false `
+            /p:Version=${{ steps.nbgv.outputs.SemVer2 }} `
+            /p:FileVersion=${{ steps.nbgv.outputs.AssemblyFileVersion }} `
+            /p:AssemblyVersion=${{ steps.nbgv.outputs.AssemblyVersion }} `
+            -o out
+      
+      - name: Archive publish output
+        run: |
+          cd out
+          Compress-Archive -Path * -DestinationPath "..\LoneSpoof.zip" -Force
+        
+      - name: Upload to "latest" release (overwrite old asset)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload latest LoneSpoof.zip --clobber
