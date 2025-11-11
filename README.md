@@ -23,6 +23,7 @@ It's basic but it's free :)
    1. [Massgrave Microsoft Activation Scripts (to activate Windows)](https://massgrave.dev/)
 3. Spoof Disk Serials:
    1. ✅ Best option is **RAID 0** (Requires Windows Re-Install). [RAID 0 Guide (Gigabyte)](https://download.gigabyte.com/FileList/Manual/mb_manual_intel700series-raid_e.pdf)
+   1. ⚠️ There are some `nulled` serial hard drives you can buy, or certain Chinese models that you can use OEM tools to change the Disk Serial, but these could potentially raise flags against you.
    1. ❌ [VolumeId](https://learn.microsoft.com/sysinternals/downloads/volumeid) just changes your Volume Serial (set randomly when your drive is formatted), and is useless.
 4. Spoof MAC Address:
    1. ✅ Change it directly in **Network Connections**.
