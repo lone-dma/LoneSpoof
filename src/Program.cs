@@ -3,7 +3,6 @@ using LoneSpoof.Spoofing;
 using Spectre.Console;
 using System.Reflection;
 using System.Text;
-using System.Xml.Linq;
 
 namespace LoneSpoof
 {
@@ -64,7 +63,7 @@ namespace LoneSpoof
                 }
 
                 // Show all changed values and confirm
-                AnsiConsole.MarkupLine("[bold underline]Summary of Planned Changes:[/]\n");
+                AnsiConsole.MarkupLine("[bold underline]Summary of Planned SMBIOS Changes:[/]\n");
                 foreach (var key in keys)
                 {
                     key.PrintChange();
@@ -92,7 +91,7 @@ namespace LoneSpoof
                 {
                     key.Spoof();
                 }
-                AnsiConsole.MarkupLine("[bold yellow]Spoofing completed. Flash your BIOS and reinstall Windows.[/]");
+                AnsiConsole.MarkupLine("[bold yellow]Spoofing completed. Flash your BIOS, and re-install Windows.[/]");
             }
             catch (Exception ex)
             {
