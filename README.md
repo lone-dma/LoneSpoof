@@ -13,17 +13,20 @@ It's basic but it's free :)
 ## Limitations
 - Only works on Motherboards with AMI BIOS.
   - Will not work on ASUS motherboards (surprise surprise)
-- Will not fix your Disk Serials (you will need to RAID 0, etc. still)
-  - I saw some other solutions using the MS tool VolumeId but I am skeptical this will be any good for even BattlEye, since I am pretty sure they use a much lower level hook and grab the actual serial number off the disk. The Volume ID is just randomly set during format.
-  - I may look into this more if I get time
+- Will not fix your Disk Serials
+  - ✅ Best option is **RAID 0**. [RAID 0 Guide (Gigabyte)](https://download.gigabyte.com/FileList/Manual/mb_manual_intel700series-raid_e.pdf)
+  - ❌ VolumeId just changes your Volume Serial (set randomly when your drive is formatted), and is useless.
 - Will not fix your MAC Address.
-  - Usually this is easy to spoof since most drivers allow you to change this directly in Network Connections.
+  - ✅ Change it directly in **Network Connections**.
+  - ![spoof_mac](https://github.com/user-attachments/assets/99d2bf99-8519-48f3-8539-bbdeb9d15f06)
+  - Use `IPCONFIG /ALL` to get your existing Ethernet MAC Address. Only change the last 24 bits (last 6 characters). The first 24 bits are the Vendor ID and should be left alone.
+  - Do this **AFTER** re-installing Windows.
 
 # Instructions
 - Run the tool on the PC you want to spoof and follow the prompts.
-- Save the 'Originals' json file in case you need to revert back to your original values.
 - After successful spoof, Re-Flash your BIOS, and Re-Install Windows
   - There are some other tools that clear traces, but there are a million and I can't be bothered to do them all. Reinstalling Windows is a better way to clear traces anyway.
+- Save the generated Logfile in case you need to revert back to your original values.
  
 # Support
 As-Is, no support. But if you see anything that I should change/look at feel free to let me know :)
