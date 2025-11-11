@@ -69,6 +69,13 @@ namespace LoneSpoof.Spoofing
                 Description = "The family or series designation of the system.",
                 DefaultSpoofedValue = "To be filled by O.E.M."
             },
+            ["/BV"] = new AmidewinKeyDescriptor
+            {
+                Key = "/BV",
+                Name = "Baseboard Version",
+                Description = "The version string for the baseboard.",
+                DefaultSpoofedValue = "x.x"
+            },
             ["/BT"] = new AmidewinKeyDescriptor
             {
                 Key = "/BT",
