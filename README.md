@@ -28,8 +28,7 @@ It's basic but it's free :)
 4. Spoof MAC Address:
    1. ✅ Change it directly in **Network Connections**.
    1. ![spoof_mac](https://github.com/user-attachments/assets/99d2bf99-8519-48f3-8539-bbdeb9d15f06)
-   1. Use `IPCONFIG /ALL` to get your existing Ethernet MAC Address. Only change the last 24 bits (last 6 characters). The first 24 bits are the Vendor ID and should be left alone.
-   1. Do this **AFTER** re-installing Windows.
+   1. Use `IPCONFIG /ALL` to get your existing Ethernet MAC Address. Only change the last 24 bits (last 6 characters). Use Hex Characters (A-F 0-9). The first 24 bits are the Vendor ID and should be left alone.
    1. For more advanced AC's you may need to spoof your ARP Table too, but I will not be going into that.
 5. Congrats! You're all spoofed.
  
