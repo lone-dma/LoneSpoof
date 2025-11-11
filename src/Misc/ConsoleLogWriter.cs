@@ -4,7 +4,6 @@ namespace LoneSpoof.Misc
 {
     public sealed class ConsoleLogWriter : TextWriter
     {
-        private readonly TextWriter _old;
         private readonly TextWriter _consoleWriter;
         private readonly StreamWriter _fileWriter;
         private readonly Lock _sync = new();
@@ -16,7 +15,6 @@ namespace LoneSpoof.Misc
             {
                 AutoFlush = true
             };
-            _old = Console.Out;
             Console.SetOut(this);
         }
 
@@ -66,7 +64,7 @@ namespace LoneSpoof.Misc
             {
                 if (!_disposed)
                 {
-                    Console.SetOut(_old);
+                    Console.SetOut(_consoleWriter);
                     if (disposing)
                     {
                         _fileWriter.Flush();
